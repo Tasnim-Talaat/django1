@@ -1,0 +1,38 @@
+{%extends 'index.html'%}
+
+{%block title%}
+        {{title}}
+{%endblock%}
+{%block content%}
+
+
+        <h1>
+                <center>list</center>
+               <span>Welcom</span> {{request.session.user_name}}
+
+        </h1>
+        <table border="1" width="100%">
+                <tr>
+
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>nid</td>
+                        <td>Course</td>
+                         <td>Update</td>
+                        <td>Delete</td>
+                </tr>
+                {%for t in trainees%}
+                        <tr>
+                                <td>{{t.id}}</td>
+                                <td>{{t.name}}</td>
+                                <td>{{t.nid}}</td>
+                                <td>{{t.courses.name}}</td>
+                                <td ><button><a href="/Trainee/update/{{t.id}}">Updates</a></button> </td>
+                                <td><button><a href="/Trainee/DeleteView/{{t.id}}">Delete</a> </button></td>
+                        </tr>
+
+
+        {%endfor%}
+        </table>
+
+{%endblock%}

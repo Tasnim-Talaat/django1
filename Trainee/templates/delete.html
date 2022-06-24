@@ -1,0 +1,31 @@
+{%extends 'index.html'%}
+{%block title%}
+delete trainee
+{%endblock%}
+{%block content%}
+       <h1>
+                <center>Delete Trainee</center>
+        </h1>
+        <table border="1" width="100%">
+                <tr>
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>nid</td>
+                        <td>Course</td>
+                </tr>
+                {%for t in trainees%}
+                        {%if t.name != 'ayla'%}
+                                <tr>
+                                        <td>{{t.id}}</td>
+                                        <td>{{t.name}}</td>
+                                        <td>{{t.nid}}</td>
+                                        <td>{{t.courses.name}}</td>
+									<td><a href="/Trainee/update/{{t.id}}">Update</a> </td>
+									<td><a href="/Trainee/DeleteView/{{t.id}}">Delete</a> </td>
+                                </tr>
+                        {%endif%}
+
+
+        {%endfor%}
+        </table>
+{%endblock%}

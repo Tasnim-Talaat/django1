@@ -1,0 +1,33 @@
+{%extends 'index.html'%}
+{%block title%}
+update trainee
+{%endblock%}
+{%block content%}
+       <h1>
+                <center>update Trainee</center>
+        </h1>
+       <form method="post" action="">
+        {% csrf_token %}
+        <br>
+        <br>
+        <label>Name</label>
+        <input type="text" name="name" value="{{trainees.name}}" >
+        </br>
+        <br>
+         <label>na-id</label>
+        <input type="number" name="nid" value="{{trainees.nid}}">
+        </br>
+        <br>
+         <label>Course</label>
+            <select name="course">
+                {%for c in courses%}
+                <option value="{{c.id}}">{{c.name}}</option>
+                {%endfor%}
+
+            </select>
+        <br>
+
+           <input type="submit" value="Update" />
+
+    </form>
+{%endblock%}
